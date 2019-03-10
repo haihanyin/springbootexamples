@@ -8,4 +8,8 @@ public class ComponentBean {
     public ComponentBean() {
         System.out.println(this.getClass() + " is created.");
     }
+
+    public void method() {
+        throw new NullPointerException();
+    }
 }
