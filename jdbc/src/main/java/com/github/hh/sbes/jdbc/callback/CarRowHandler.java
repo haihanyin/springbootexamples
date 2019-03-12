@@ -14,7 +14,7 @@ public class CarRowHandler implements RowCallbackHandler {
     public void processRow(ResultSet resultSet) throws SQLException {
         Car car = new Car();
         int id = resultSet.getInt("id");
-        car.setId(99);
+        car.setId(id);
         String type = resultSet.getString("type");
         car.setType(type);
         cars.add(car);

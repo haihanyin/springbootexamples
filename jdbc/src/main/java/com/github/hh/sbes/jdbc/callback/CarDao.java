@@ -29,4 +29,9 @@ public class CarDao {
         return carRowHandler.getCars();
     }
 
+    public List<Car> findAllCarsWithExtractor() {
+        CarExtractor carExtractor = new CarExtractor();
+        List<Car> queryResult = jdbcTemplate.query("select * from car", carExtractor);
+        return queryResult;
+    }
 }

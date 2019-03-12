@@ -30,7 +30,11 @@ public class CarDaoTest {
     }
 
     @Test
-    public void testRowExtractor() {
-
+    public void testExtractor() {
+        carDao.addCar(1, "Audi");
+        carDao.addCar(2, "Toyota");
+        List<Car> allCarsWithExtractor = carDao.findAllCarsWithExtractor();
+        allCarsWithExtractor.forEach(System.out::println);
     }
+
 }
