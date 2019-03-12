@@ -1,5 +1,7 @@
-package com.github.hh.sbes.jdbc.jdbctemplate;
+package com.github.hh.sbes.lifecycle.prepost;
 
+import com.github.hh.sbes.lifecycle.aware.AwareBean;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,23 +10,19 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.List;
-
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = PersonDaoTest.TestConfiguration.class)
-public class PersonDaoTest {
+@ContextConfiguration(classes = PrepostBeanTest.TestConfiguration.class)
+public class PrepostBeanTest {
 
     @Configuration
-    @ComponentScan(basePackages = { "com.github.hh.sbes.jdbc.jdbctemplate" })
-    static class TestConfiguration {}
+    @ComponentScan(basePackages = "com.github.hh.sbes.lifecycle.prepost")
+    static class TestConfiguration { }
 
     @Autowired
-    private PersonDao personDao;
+    private AwareBean interfaceImplBean;
 
     @Test
     public void test() {
-        personDao.addPerson("John", 23);
-        List<Person> people = personDao.listPeople();
-        people.forEach(System.out::println);
+        Assert.assertNotNull(interfaceImplBean);
     }
 }

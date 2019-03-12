@@ -1,4 +1,4 @@
-package com.github.hh.sbes.jdbc.jdbctemplate;
+package com.github.hh.sbes.jdbc.callback;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,10 +11,9 @@ import javax.sql.DataSource;
 public class Config {
 
     @Bean
-    public DataSource getDataSource() throws Exception {
+    public DataSource getDataSource() {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-        builder.setType(EmbeddedDatabaseType.H2).addScript("classpath:schema-jdbctemplate.sql");
+        builder.setType(EmbeddedDatabaseType.H2).addScript("classpath:schema-callback.sql");
         return builder.build();
     }
-
 }

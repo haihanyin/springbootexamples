@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
@@ -18,10 +19,14 @@ public class ComponentBeanTest {
     static class TestConfiguration {}
 
     @Autowired
+    private ApplicationContext applicationContext;
+
+    @Autowired
     private ComponentBean componentBean;
 
     @Test
     public void test() {
+        Assert.assertNotNull(applicationContext);
         Assert.assertNotNull(componentBean);
     }
 }
