@@ -9,6 +9,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.concurrent.Semaphore;
 
 @Configuration
 @EnableTransactionManagement
@@ -26,5 +27,10 @@ public class Config {
         DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
         dataSourceTransactionManager.setDataSource(getDataSource());
         return dataSourceTransactionManager;
+    }
+
+    @Bean
+    public Semaphore getSemaphore() {
+        return new Semaphore(0);
     }
 }

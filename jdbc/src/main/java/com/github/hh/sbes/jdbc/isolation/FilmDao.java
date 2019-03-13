@@ -26,4 +26,15 @@ public class FilmDao {
         List<Film> result = jdbcTemplate.query("select * from film", new FilmMapper());
         return result;
     }
+
+    public List<Film> findFilm(String name) {
+        String sql = "select * from film where name = '" + name + "'";
+        List<Film> result = jdbcTemplate.query(sql, new FilmMapper());
+        return result;
+    }
+
+    public void updateFilm(String name, int point) {
+        String sql = String.format("update film set point=%d where name = '%s'", point, name);
+        jdbcTemplate.update(sql);
+    }
 }
