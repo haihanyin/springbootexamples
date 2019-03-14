@@ -49,6 +49,7 @@ public class FilmReadService {
 
     private void doubleReadFilms() {
         try {
+            Thread.sleep(1000);
             System.out.println("first read");
             printAllFilms();
             semaphore.acquire();

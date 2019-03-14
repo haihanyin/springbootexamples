@@ -1,5 +1,6 @@
 package com.github.hh.sbes.jdbc.isolation;
 
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -17,9 +18,14 @@ public class Config {
 
     @Bean
     public DataSource getDataSource() {
-        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-        builder.setType(EmbeddedDatabaseType.H2).addScript("classpath:schema-isolation.sql");
-        return builder.build();
+//        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+//        builder.setType(EmbeddedDatabaseType.H2).addScript("classpath:schema-isolation.sql");
+//        return builder.build();
+        return DataSourceBuilder.create()
+                .url("jdbc:mysql://localhost:3306/test")
+                .username("root")
+                .password("root")
+                .build();
     }
 
     @Bean

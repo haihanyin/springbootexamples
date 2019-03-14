@@ -49,7 +49,7 @@ public class FilmServiceTest {
 
     @Test
     public void addReadRepeatableRead() {
-        new Thread(() -> filmWriteService.updateFilm("xman", 99)).start();
+        new Thread(() -> filmWriteService.updateFilm("xman", 89)).start();
         filmReadService.listAllFilmsRepeatableRead();
     }
 
