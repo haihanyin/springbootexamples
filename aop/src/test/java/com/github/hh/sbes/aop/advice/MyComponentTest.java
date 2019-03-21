@@ -3,6 +3,7 @@ package com.github.hh.sbes.aop.advice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
@@ -16,7 +17,12 @@ public class MyComponentTest {
     @ComponentScan(basePackages = "com.github.hh.sbes.aop.advice")
     static class TestConfig {}
 
+    @Autowired
+    private MyComponent myComponent;
+
     @Test
-    public void test() {}
+    public void test() {
+        myComponent.sayHello();
+    }
 
 }

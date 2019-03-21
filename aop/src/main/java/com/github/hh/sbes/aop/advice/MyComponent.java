@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 public class MyComponent {
 
     public void sayHello() {
-        System.out.println("Hello");
+        System.out.println("Hello1");
     }
 }
