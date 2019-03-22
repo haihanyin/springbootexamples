@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+          http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+
+    <bean id="myComponent" class="com.github.hh.sbes.aop.advice.MyComponent"/>
+
+    <bean id="logAspect" class="com.github.hh.sbes.aop.advice.LogAspect"/>
+
+    <bean id="logBeforeAdvice" class="com.github.hh.sbes.aop.advice.MyBeforeAdvisor" />
+
+    <aop:config>
+        <aop:aspect ref="logAspect">
+            <aop:pointcut id="logPointcut" expression="execution(* com.github.hh.sbes.aop.advice.MyComponent.sayHello())" />
+            <aop:before method="logBeore" pointcut-ref="logPointcut" />
+            <aop:after method="logAfter" pointcut-ref="logPointcut" />
+            <aop:around method="logAround" pointcut-ref="logPointcut" />
+        </aop:aspect>
+        <aop:aspect ref="logAspect">
+            <aop:pointcut id="logPointcut2"
+                          expression="execution(java.lang.String com.github.hh.sbes.aop.advice.MyComponent.sayHelloWithName(java.lang.String))" />
+            <aop:after-returning method="logAfterReturning" pointcut-ref="logPointcut2" returning="returnValue"/>
+            <aop:after-throwing method="logAfterThrowing" pointcut-ref="logPointcut2" throwing="e" />
+        </aop:aspect>
+    </aop:config>
+
+    <aop:config>
+        <aop:pointcut id="logPointcut3" expression="execution(* com.github.hh.sbes.aop.advice.MyComponent.sayHelloWithAdvisor())" />
+        <aop:advisor advice-ref="logBeforeAdvice" pointcut-ref="logPointcut3" />
+    </aop:config>
+</beans>
