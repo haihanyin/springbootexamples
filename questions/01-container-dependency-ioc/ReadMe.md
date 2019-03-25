@@ -164,16 +164,32 @@ default name:
 Spring creates proxy on @Configuration class. Therefore, `final` is not allowed
 
 ### How do @Configuration annotated classes support singleton beans?
+Just annotate as @Bean
+
 ### Why can’t @Bean methods be final either?
+proxy needs to be created on @Configuration class
+
 ## How do you configure profiles?, What are possible use cases where they might be useful?
+
+
 ## Can you use @Bean together with @Profile?
+
+
 ## Can you use @Component together with @Profile?
 ## How many profiles can you have?
 ## How do you inject scalar/literal values into Spring beans?
 ## What is @Value used for?
+Inject value, from proterty of Spel expression result to fields. 
+
 ## What is Spring Expression Language (SpEL for short)?
+SpEL is a language quering object references.
+
 ## What is the Environment abstraction in Spring?
-## Where can properties in the environment come from – there are many sources for
-## properties – check the documentation if not sure. Spring Boot adds even more.
+
+## Where can properties in the environment come from – there are many sources for properties – check the documentation if not sure. Spring Boot adds even more.
 ## What can you reference using SpEL?
 ## What is the difference between $ and # in @Value expressions?
+`${...}` is the property placeholder syntax. It can only be used to dereference properties.
+`#{...}` is SpEL syntax, which is far more capable and complex. It can also handle property placeholders, and a lot more besides.
+
+[A Quick Guide to Spring @Value](https://www.baeldung.com/spring-value-annotation)
