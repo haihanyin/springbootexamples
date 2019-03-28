@@ -40,11 +40,26 @@ request, response,
 @PathVariable, @ModelAttribute, @RequestHeader, @RequestParam, @RequestBody
 
 ## What are some of the valid return types of a controller method?
+View, Model, void, ModelAndView, HttpEntity, String, any object with @ResponseBody on method
+
 ## What is a View and what's the idea behind supporting different types of View?
 ## How is the right View chosen when it comes to the rendering phase?
+ViewResolver use prefix and suffix.
+
 ## What is the Model?
+DataModel for rendering view.
+
 ## Why do you have access to the model in your View? Where does it come from?
+Sent from controller
+
 ## What is the purpose of the session scope?
+Http request are stateless, sessions can save the state for multiple related requests.
+
 ## What is the default scope in the web context?
+Singleton scope
+
 ## Why are controllers testable artifacts?
+by using MockMVC
+
 ## What does a ViewResolver do?
+ViewResolver use prefix and suffix.
