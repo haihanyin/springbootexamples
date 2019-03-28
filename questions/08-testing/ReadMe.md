@@ -1,6 +1,12 @@
 ## Do you use Spring in a unit test?
+Yes
+
 ## What type of tests typically use Spring?
+Unit tests
+
 ## How can you create a shared application context in a JUnit integration test?
+
+
 ## When and where do you use @Transactional in testing?
 ## How are mock frameworks such as Mockito or EasyMock used?
 ## How is @ContextConfiguration used?
