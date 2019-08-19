@@ -3,7 +3,7 @@ Modularization the cross-cutting concerns.
 A cross-cutting concern is a concern that spreaded around the entire application.  
 
 ### Name three typical cross cutting concerns.
-Logging, security, transaction.
+Logging, security, transaction, caching, error handling, persistence, bean management.
 
 ### What two problems arise if you don't solve a cross cutting concern via AOP?
 repeated functionalities spreaded all over around
