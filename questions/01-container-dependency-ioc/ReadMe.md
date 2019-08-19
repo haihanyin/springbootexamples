@@ -22,8 +22,8 @@ Application context in spring is a more advanced bean factory.
 The ApplicationContext provides:
 - Accessing application components.
 - Loading resources
-- Publising events to registered listeners.
-- Resovling messages to support internationalization
+- Publising events to registered listeners. (application context events, obeserver)
+- Resovling messages to support internationalization (class MessageSource)
 - Inheriting a parent context
 
 [Understanding Application Context](https://spring.io/understanding/application-context)
@@ -31,6 +31,19 @@ The ApplicationContext provides:
 
 ## What is the concept of a “container” and what is its lifecycle?
 Container virtualize the things that the container manages. 
+
+Initialization life cycle:
+- constructor, setter (own)
+- BeanNameAware, BeanFactoryAware (aware) 
+- BeanPostProcessor.postProcessBeforeInitiailization (bpp.before)
+- @PostConstruct, InitializingBean.afterPropertiesSet, init-method (Annotation,Interface,Xml - AIX)
+- BeanPostProcessor.postProcessAfterInitiailization (bpp.after)
+
+Destroying life cycle:
+- @PreDestroy
+- DisposableBean.destroy()
+- destroy-method (AIX)
+- finalize()
 
 Life cycle hooks:
 - A bunch of 'Aware' Interfaces.
@@ -43,6 +56,9 @@ Life cycle hooks:
 
 ## How are you going to create a new instance of an ApplicationContext?
 [Spring application context example](https://alvinalexander.com/blog/post/java/load-spring-application-context-file-java-swing-application)
+
+- Corresponding ApplicationContext(annotation, classpath, filesystem, groovy, etc) class location resources
+- Get bean from that applicationContext
 
 ## Can you describe the lifecycle of a Spring Bean in an ApplicationContext?
 [Spring Bean Life Cycle Explained](https://howtodoinjava.com/spring-core/spring-bean-life-cycle/)
@@ -88,16 +104,19 @@ To alter, use @Lazy.
 ## What is a property source? How would you use @PropertySource?
 @ProertySource is for loading property file, used on class level.
 
-[Properties with Spring and Spring Boot](https://www.baeldung.com/properties-with-spring)
+[Properties with Spring and Spring Boot](https://www.baeldung.com/properties-with-spring) !!
 
 ## What is a BeanFactoryPostProcessor and what is it used for? When is it invoked?
-??
+It can be used for changing the creation of any bean as a "BeanFactory"
+
+[Spring的BeanFactoryPostProcessor和BeanPostProcessor](https://blog.csdn.net/caihaijiang/article/details/35552859)
 
 ### Why would you define a static @Bean method?
 ??
 
 ### What is a ProperySourcesPlaceholderConfigurer used for?
 It resolves ${...} placeholder in @Value annotation.
+[Spring PropertySourcesPlaceholderConfigurer工作原理](https://blog.csdn.net/qyp199312/article/details/54313784) !!
 
 ## What is a BeanPostProcessor and how is it different to a BeanFactoryPostProcessor? What do they do? When are they called?
 - BeanFactoryPostProcessor processes beans after it's configuration is loaded and before it is instantiated. 
@@ -113,7 +132,7 @@ initialization method has two types:
 
 ### What is a destroy method, how is it declared and when is it called?
 @PreDestroy
-??
+interface DisposableBean.destroy
 
 ---
 - Consider how you enable JSR-250 annotations like @PostConstruct and
@@ -123,7 +142,7 @@ initialization method has two types:
 
 ## What does component-scanning do?
 Component-scanning find all beans declared in a certain package and automatically resolve them in application context.
-Configuration `annotation-config` only resolve dependencies with @Auwowired, bean instantiation needs to be made. 
+Configuration `annotation-config` only resolve dependencies with @Autowired, bean instantiation needs to be made. 
 
 ## What is the behavior of the annotation @Autowired with regards to field injection, constructor injection and method injection?
 [Field Dependency Injection Considered Harmful](https://www.vojtechruzicka.com/field-dependency-injection-considered-harmful/)
@@ -169,13 +188,13 @@ Just annotate as @Bean
 ### Why can’t @Bean methods be final either?
 proxy needs to be created on @Configuration class
 
-## How do you configure profiles?, What are possible use cases where they might be useful?
+## How do you configure profiles? What are possible use cases where they might be useful? !!
 
 
-## Can you use @Bean together with @Profile?
+## Can you use @Bean together with @Profile? !!
 
 
-## Can you use @Component together with @Profile?
+## Can you use @Component together with @Profile? !!
 ## How many profiles can you have?
 ## How do you inject scalar/literal values into Spring beans?
 ## What is @Value used for?
@@ -184,7 +203,7 @@ Inject value, from proterty of Spel expression result to fields.
 ## What is Spring Expression Language (SpEL for short)?
 SpEL is a language quering object references.
 
-## What is the Environment abstraction in Spring?
+## What is the Environment abstraction in Spring? !!
 
 ## Where can properties in the environment come from – there are many sources for properties – check the documentation if not sure. Spring Boot adds even more.
 ## What can you reference using SpEL?

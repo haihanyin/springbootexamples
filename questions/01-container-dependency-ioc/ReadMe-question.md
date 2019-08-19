@@ -7,8 +7,7 @@
 ## How are you going to create a new instance of an ApplicationContext?
 ## Can you describe the lifecycle of a Spring Bean in an ApplicationContext?
 ## How are you going to create an ApplicationContext in an integration test test?
-## What is the preferred way to close an application context? Does Spring Boot do this for
-## you?
+## What is the preferred way to close an application context? Does Spring Boot do this for you?
 ## Can you describe:
 ### Dependency injection using Java configuration?
 ### Dependency injection using annotations (@Component, @Autowired)?
@@ -26,10 +25,8 @@
 - @PreDestroy? When/how will they get called?
 - How else can you define an initialization or destruction method for a Spring bean?
 ## What does component-scanning do?
-## What is the behavior of the annotation @Autowired with regards to field injection,
-## constructor injection and method injection?
-## What do you have to do, if you would like to inject something into a private field? Ho does
-## this impact testing?
+## What is the behavior of the annotation @Autowired with regards to field injection, constructor injection and method injection?
+## What do you have to do, if you would like to inject something into a private field? Ho does this impact testing?
 ## How does the @Qualifier annotation complement the use of @Autowired?
 ## What is a proxy object and what are the two different types of proxies Spring can create?
 ### What are the limitations of these proxies (per type)?
@@ -40,7 +37,7 @@
 ## Why are you not allowed to annotate a final class with @Configuration
 ### How do @Configuration annotated classes support singleton beans?
 ### Why can’t @Bean methods be final either?
-## How do you configure profiles?, What are possible use cases where they might be useful?
+## How do you configure profiles? What are possible use cases where they might be useful?
 ## Can you use @Bean together with @Profile?
 ## Can you use @Component together with @Profile?
 ## How many profiles can you have?
