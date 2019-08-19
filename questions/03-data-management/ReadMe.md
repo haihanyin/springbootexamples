@@ -39,9 +39,10 @@ with connection pool, the method call will use cached connection from the pool.
 ?? 
 [Does Spring's JdbcTemplate close the connection after query timeout?](https://stackoverflow.com/questions/20419785/does-springs-jdbctemplate-close-the-connection-after-query-timeout)
 
-## How does the JdbcTemplate support generic queries? How does it return objects and lists/maps of objects?
+## How does the JdbcTemplate support generic queries? How does it return objects and lists/maps of objects? !!
 
 ## What is a transaction? What is the difference between a local and a global transaction?
+Indipendently executed logic unit for data read and write. ACID (atomic, consistent, isolated, durable)
 Local transaction is resource specific, like database instance, jms instance.
 Global transaction crosses resources.
 
@@ -79,6 +80,10 @@ Transaction configuration:
 [可能是最漂亮的Spring事务管理详解](https://juejin.im/post/5b00c52ef265da0b95276091)
 
 ### What does @Transactional do? What is the PlatformTransactionManager?
+@Transactional declares a method/all methods in a class should be treated as transactions at rumtime. 
+Spring AOP does the work.
+PlatformTransactionManager is a strategy interface which commits and rollbacks transactions.
+
 [Understanding the Spring Framework transaction abstraction](https://docs.spring.io/spring-framework/docs/3.0.0.RC3/spring-framework-reference/html/ch10s03.html)
 [which transaction manager should I use (JTA vs JPA)?](https://stackoverflow.com/questions/26482495/which-transaction-manager-should-i-use-jta-vs-jpa)
 
@@ -101,6 +106,7 @@ How a new transaction handles the current context (with/without existing transac
 
 ## What happens if one @Transactional annotated method is calling another @Transactional annotated method on the same object instance?
 Dependes on the propagation configuration
+if "this" is used, no transaction feature is applied to the second one.
 
 ## Where can the @Transactional annotation be used? What is a typical usage if you put it at class level?
 All public non-final non-static methods will be applied with the class level @Transactional. Unless it
@@ -140,6 +146,7 @@ will then manage entity instances and their associated lifecycle.
 ??
 JPA stuff to be exercised
 
+!!
 ## What do you need to do in Spring if you would like to work with JPA?
 ## Are you able to participate in a given transaction in Spring while working with JPA?
 ## Which PlatformTransactionManager(s) can you use with JPA?
