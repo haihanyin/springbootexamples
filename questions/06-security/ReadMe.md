@@ -1,4 +1,5 @@
 [spring-security-interview-questions-and-answers](https://www.dineshonjava.com/spring-security-interview-questions-and-answers/#11)
+[Spring Security Reference](https://docs.spring.io/spring-security/site/docs/4.2.x/reference/html/)
 ## What are authentication and authorization? Which must come first?
 authentication - who are you
 authorization - what are you
