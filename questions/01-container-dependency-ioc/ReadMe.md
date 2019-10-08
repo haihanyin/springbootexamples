@@ -102,7 +102,7 @@ To alter, use @Lazy.
 [A Quick Guide to the Spring @Lazy Annotation](https://www.baeldung.com/spring-lazy-annotation)
 
 ## What is a property source? How would you use @PropertySource?
-@ProertySource is for loading property file, used on class level.
+@PropertySource is for loading property file, used on class level.
 
 [Properties with Spring and Spring Boot](https://www.baeldung.com/properties-with-spring) !!
 
